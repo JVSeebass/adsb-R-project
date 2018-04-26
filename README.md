@@ -17,3 +17,8 @@ R package to get/evalutate/plot data from adsbexchange.com
 - points/radius: see "Use of get_live_data"
 
 -> see how many planes are in the specific area
+
+#### Use of plot_planes:
+- point/radius: see "Use of get_live_data"
+
+-> Show the position of the planes on a map via leaflet and give additional information.
