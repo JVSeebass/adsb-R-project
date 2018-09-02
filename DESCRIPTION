@@ -1,0 +1,35 @@
+Package: TAwithRS
+Type: Package
+Title: AWS Redshift Connectivity and Transport Flow Analysis
+Version: 0.0.0.9000
+Author: c(
+    person("Erik", "Seume", , "erik.seume@stud.uni-goettingen.de", c("aut", "cre")),
+    person("Johann", "Seebass", , "johann.seebass@stud.uni-goettingen.de", c("aut", "cre"))
+    )
+Maintainer: Erik Seume <erik.seume@stud.uni-goettingen.de>
+Description: A package which eases access to the Amazon Web Services (AWS)
+    Redshift database management system (DBMS) and allows for analysing/
+    plotting position tracking data of vehicles.
+License: Release not planned.
+Encoding: UTF-8
+LazyData: true
+Imports:
+Depends: 
+    R (>= 3.3.3),
+    anytime,
+    DBI,
+    dplyr,
+    jsonlite,
+    leaflet,
+    maps,
+    RJDBC,
+    RPostgres,
+    rstudioapi,
+    stringr
+Suggests:
+    knitr,
+    roxygen2,
+    rmarkdown,
+    testthat
+VignetteBuilder: knitr
+RoxygenNote: 6.0.1
