@@ -30,6 +30,8 @@
 #' @references For a table of the selectable cities see \code{\link[maps:world.cities]{world.cities}}.
 #' For further information see also \url{https://www.adsbexchange.com/data/}
 #'
+#' @import maps stringr
+#'
 #' @export GetLiveData
 
 

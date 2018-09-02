@@ -7,12 +7,6 @@
 #' is linked with a timestamp at every point. This date is itslef linked to
 #' aircraft identifier.
 #'
-#' @details Function arguments ica, start and end are character strings.
-#' Enter start and end in UTC date/time. Local times must be coverted
-#' beforehand into UTC Time by using e.g. \code{\link{anytime}}
-#'
-#' GetHistoricADSBExchange(con, ica, start, end, limit = 10)
-#'
 #' @param con A connection object which is obtained using \code{\link{ConnectRS}}
 #'
 #' @param ica A character string of the ICAO code of an aircraft.
@@ -36,7 +30,20 @@
 #' @return Returns a data.frame which can be used for
 #' analysis with the plotting function \code{\link{PlotAirways}}
 #'
+#' @details Function arguments ica, start and end are character strings.
+#' Enter start and end in UTC date/time. Local times must be coverted
+#' beforehand into UTC Time by using e.g. \code{\link{anytime}}
+#'
+#' GetHistoricADSBExchange(con, ica, start, end, limit = 10)
+#'
+#' @examples \dontrun{Not generally executable example:
+#' GetHistoricADSBExchange(con = con, ica = "86D660", start = "2018-08-31 01:00:00",
+#' end = "2018-08-31 12:10:00", limit = 10)}
+#'
 #' @importFrom DBI dbGetQuery
+#' @import anytime dplyr
+#'
+#' @export GetHistoricADSBExchange
 
 
 # Writing a function which retrieves parameters (columns) from
@@ -94,6 +101,9 @@ SQL.statem <- paste(
 
 # II.II)
 # query the DB using the DB connection object and the SQL statement from II.I)
-return(dbGetQuery(con, SQL.statem))
+ df <- dbGetQuery(con, SQL.statem)
+ df$postime <- anytime(as.numeric(substring(df$postime, 1, 10), tz = "UTC"))
+
+ return(df)
 
 }

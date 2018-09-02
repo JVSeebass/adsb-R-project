@@ -3,7 +3,7 @@ test_that("point and radius are valid", {
   expect_equal(class(GetLiveData("Berlin")), "data.frame")
   expect_equal(class(GetLiveData(point = c(52.5243, 12.0001))), "data.frame")
   expect_equal(class(GetLiveData(("Berlin"), radius = 100)), "data.frame")
-  expect_equal(class(GetLiveData(c(58,13), radius = 500)), "data.frame")
+  expect_equal(class(GetLiveData(c(58,13), radius = 200)), "data.frame")
 })
 
 
@@ -17,9 +17,9 @@ test_that("type is valid", {
 
 
 # Errors can occur if too many parameters are selected and no matches could be found.
-test_that("mixtrues are valid", {
+test_that("mixtures are valid", {
   expect_equal(class(GetLiveData(point = "Copenhagen", country = "Denmark")), "data.frame")
-  expect_equal(class(GetLiveData(point = "Copenhagen", radius = 200, country = "Denmark", type = "A320")), "data.frame")
+  expect_equal(class(GetLiveData(point = "Copenhagen", radius = 800, country = "Denmark", type = "A320")), "data.frame")
   expect_equal(class(GetLiveData(point = "London", radius = 200, type = "A319")), "data.frame")
 })
 

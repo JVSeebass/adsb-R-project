@@ -5,8 +5,11 @@
 #' PostgreSQL code is required.
 #'
 #' @param host A character string for the DB host
+#'
 #' @param user A character string for the Username
+#'
 #' @param dbname A character string for the Name of the DB
+#'
 #' @param port Port is set to 5439 (class(port): "numeric") by default.
 #' This is the default TCP port for AWS Redshift DBMS.
 #'
@@ -15,7 +18,7 @@
 #' \code{\link[dplyr]{dplyr}}, more specifically the
 #' \code{\link[dbplyr]{dbplyr}} package.
 #'
-#' @details Generally not executable examples:
+#' @examples \dontrun{Not generally executable examples:
 #' Connecting to PostgreSQL AWS Redshift database hosted by
 #' "redshift.adsbexchange.com" for user "erikseumegoettingen",
 #' with database name "adsbx". Enter password in pop-up.
@@ -24,10 +27,12 @@
 #' user = 'erikseumegoettingen', dbname = 'adsbx')
 #'
 #' dbDisconnect(con)
-#' dbIsValid(con) # confirms that connection is closed by returning FALSE
+#' dbIsValid(con) # confirms that connection is closed by returning FALSE}
 #'
-
-
+#' @export ConnectRSdplyr
+#'
+#' @importFrom RPostgres Postgres
+#' @importFrom rstudioapi askForPassword
 
 
 # Writing a function that intakes few parameters, to create connection

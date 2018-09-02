@@ -34,10 +34,12 @@ selected time frame.
 A function which plots the flightroute of an aircraft.
 }
 \details{
-Example:
-PlotAirways(con = con, ica = "4010EB", start = "2016-06-09 05:32:49",
-end = "2016-06-09 18:55:35", limit = 300)
-
 See also \code{\link{GetHistoricADSBExchange}}
 for further information and how to get the con object
+}
+\examples{
+\dontrun{
+PlotAirways(con = con, ica = "4010EB", start = "2016-06-09 05:32:49",
+end = "2016-06-09 18:55:35", limit = 3)}
+
 }

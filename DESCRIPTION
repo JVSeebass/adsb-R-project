@@ -1,4 +1,4 @@
-Package: tawithrs
+Package: TAwithRS
 Type: Package
 Title: AWS Redshift Connectivity and Transport Flow Analysis
 Version: 0.0.0.9000
@@ -14,18 +14,18 @@ License: Release not planned.
 Encoding: UTF-8
 LazyData: true
 Imports:
+Depends: 
+    R (>= 3.3.3),
     anytime,
     DBI,
+    dplyr,
     jsonlite,
     leaflet,
     maps,
     RJDBC,
     RPostgres,
     rstudioapi,
-    stringr,
-    dplyr
-Depends: 
-    R (>= 3.3.3)
+    stringr
 Suggests:
     knitr,
     roxygen2,

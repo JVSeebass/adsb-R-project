@@ -46,3 +46,9 @@ beforehand into UTC Time by using e.g. \code{\link{anytime}}
 
 GetHistoricADSBExchange(con, ica, start, end, limit = 10)
 }
+\examples{
+\dontrun{Not generally executable example:
+GetHistoricADSBExchange(con = con, ica = "86D660", start = "2018-08-31 01:00:00",
+end = "2018-08-31 12:10:00", limit = 10)}
+
+}

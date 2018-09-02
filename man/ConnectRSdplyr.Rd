@@ -27,8 +27,8 @@ Function to establish PostgreSQL driven connection to AWS Redshift DBMS.
 Communication with DB via this channel requires only dplyr verbs, no
 PostgreSQL code is required.
 }
-\details{
-Generally not executable examples:
+\examples{
+\dontrun{Not generally executable examples:
 Connecting to PostgreSQL AWS Redshift database hosted by
 "redshift.adsbexchange.com" for user "erikseumegoettingen",
 with database name "adsbx". Enter password in pop-up.
@@ -37,5 +37,6 @@ con <- ConnectRSdplyr(host = 'redshift.adsbexchange.com',
 user = 'erikseumegoettingen', dbname = 'adsbx')
 
 dbDisconnect(con)
-dbIsValid(con) # confirms that connection is closed by returning FALSE
+dbIsValid(con) # confirms that connection is closed by returning FALSE}
+
 }

@@ -52,8 +52,12 @@ Either provide: yrurl OR all other arguments.
 Connection to DB not visible in RStudio connection pane. Disconnect
 by using e.g. \link[DBI]{dbDisconnect}
 
-
-Generally not executable examples:
+For details on the JDBC cluster URL see:
+\href{https://docs.aws.amazon.com/redshift/latest/mgmt/configure-jdbc-connection.html#obtain-jdbc-url}{AWS Documentation}
+}
+\examples{
+\dontrun{
+Not generally executable examples:
 
 con <- ConnectRS(yrurl = "jdbc:redshift://redshift.adsbexchange.com:5439/adsbx?user=random.user&")
 (when the url is given)
@@ -72,8 +76,6 @@ user = "random.user", driverClass = "com.amazon.redshift.jdbc42.Driver",
 classPath = "C:/.../JDBC/RedshiftJDBC42-1.2.15.1025.jar", identifier.quote = "`")
 Password retrieved via popo-up
 
-dbDisconnect(con)
+dbDisconnect(con)}
 
-For details on the JDBC cluster URL see:
-\href{https://docs.aws.amazon.com/redshift/latest/mgmt/configure-jdbc-connection.html#obtain-jdbc-url}{AWS Documentation}
 }

@@ -58,8 +58,9 @@ NoPlanes <- function(point = "", radius=100) {
 #'
 #' @importFrom leaflet %>%
 #'
+#' @import leaflet
+#'
 #' @export PlotPlanes
-
 
 PlotPlanes <- function(point = "", radius = 100, country = "", type = "") {
 
@@ -113,22 +114,23 @@ PlotPlanes <- function(point = "", radius = 100, country = "", type = "") {
 #' @return A map plotting the past postion marks of an aircraft in a
 #' selected time frame.
 #'
-#' @details
-#' Example:
-#' PlotAirways(con = con, ica = "4010EB", start = "2016-06-09 05:32:49",
-#' end = "2016-06-09 18:55:35", limit = 300)
-#'
-#' See also \code{\link{GetHistoricADSBExchange}}
+#' @details See also \code{\link{GetHistoricADSBExchange}}
 #' for further information and how to get the con object
-
-
-
+#'
+#' @examples \dontrun{
+#' PlotAirways(con = con, ica = "4010EB", start = "2016-06-09 05:32:49",
+#' end = "2016-06-09 18:55:35", limit = 3)}
+#'
+#' @export PlotAirways
 
 PlotAirways <- function(con, ica, start, end, limit = 10){
-
-    data <- GetHistoricADSBExchange(con, ica, start, end, limit)
-
-    map  <- leaflet::leaflet() %>% leaflet::addTiles()
-
-    map %>% leaflet::addPolylines(data$long, data$lat)
+  data <- GetHistoricADSBExchange(con, ica, start, end, limit)
+  info <- c()
+  for (i in 1:length(data[, 1])) {
+    info <- c(info, paste("<b>Time: </b>", data$postime,
+                          sep = ""))
+  }
+  map  <- leaflet::leaflet() %>% leaflet::addTiles()
+  map %>% leaflet::addPolylines(data$long, data$lat) %>%
+    leaflet::addCircleMarkers(data$long, data$lat, popup = info, radius = .5)
 }
